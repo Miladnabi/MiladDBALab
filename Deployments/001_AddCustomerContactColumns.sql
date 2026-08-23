@@ -30,5 +30,20 @@ BEGIN
 END;
 GO
 
+IF COL_LENGTH('Sales.Customers', 'SSN') IS NULL
+BEGIN
+    ALTER TABLE Sales.Customers
+    ADD PhoneNumber VARCHAR(25) NULL;
+
+    PRINT 'SSN added.';
+END
+ELSE
+BEGIN
+    PRINT 'SSN already exists.';
+END;
+GO
+
+
+    
 PRINT 'Deployment complete.';
 GO
